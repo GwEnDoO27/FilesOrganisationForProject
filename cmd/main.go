@@ -24,14 +24,21 @@ func main() {
 	createscript.CreateInitGoModFile(ProjectPath)
 	fmt.Println("All directories created")
 
-	scriptPath := filepath.Join(ProjectPath, "init_go_mod.sh")
+	scriptPath := filepath.Join(ProjectPath, "Backend", "init_go_mod.sh")
+
+	if _, err := os.Stat(scriptPath); os.IsNotExist(err) {
+		fmt.Printf("Le script n'existe pas à l'emplacement spécifié: %s\n", scriptPath)
+		return
+	}
 
 	if err := os.Chmod(scriptPath, 0755); err != nil {
 		fmt.Printf("Error making script executable: %s\n", err)
 		return
 	}
 
-	cmd := exec.Command("bash", scriptPath, configs.Projectname)
+	targetDir := filepath.Join(ProjectPath, "Backend")
+
+	cmd := exec.Command("bash", scriptPath, configs.Projectname, targetDir)
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		fmt.Printf("Error running script: %s\n", err)
