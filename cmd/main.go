@@ -47,4 +47,11 @@ func main() {
 
 	// Afficher la sortie du script
 	fmt.Printf("Script output:\n%s\n", string(output))
+
+	// Supprimer le script après exécution
+	if err := os.Remove(scriptPath); err != nil {
+		fmt.Printf("Error removing script: %s\n", err)
+		return
+	}
+	fmt.Println("Script removed successfully.")
 }

@@ -73,5 +73,5 @@ func CreateJSFile(ProjectPath string) {
 }
 
 var js = []string{
-	"Code JavaScript principal de l'application",
+	"//Code JavaScript principal de l'application",
 }
