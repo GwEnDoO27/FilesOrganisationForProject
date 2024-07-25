@@ -12,5 +12,6 @@ func main() {
 	Projectname := prompt.PromptProjectName("Enter the name of the project :")
 	fmt.Printf("The name of your project %s\n", Projectname)
 	ProjectPath := creatingfolders.CreateMainFolder(Projectname, absolutepath)
-	creatingfolders.CreatebackendFolder(ProjectPath)
+	creatingfolders.CreateBackendFolder(ProjectPath)
+	creatingfolders.CreateFrontendFolder(ProjectPath)
 }
