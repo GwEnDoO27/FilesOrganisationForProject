@@ -98,6 +98,9 @@ func CreateUtilsFolder(ProjectPath string) {
 		return
 	}
 	fmt.Println("utils directory created successfully!")
+	createfile.CreateUtilsFile(Newpath)
+	createfile.CreateDb(Newpath)
+	createfile.CreateDatabaseFile(Newpath)
 
 }
 

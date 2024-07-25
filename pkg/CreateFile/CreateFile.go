@@ -94,5 +94,62 @@ func CreateRoutesFile(ProjectPath string) {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println("routes", routes)
+}
+
+func CreateUtilsFile(ProjectPath string) {
+	Newpath := filepath.Join(ProjectPath, "utils.go")
+	file, err := os.Create(Newpath)
+	if err != nil {
+		fmt.Println(err)
+		file.Close()
+		return
+	}
+	for _, v := range utils {
+		fmt.Fprintln(file, v)
+	}
+	err = file.Close()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+}
+
+var utils = []string{
+	"package utils\n", "Contient des fonctions utilitaires, souvent utilisées dans plusieurs parties de l'application.",
+}
+
+func CreateDatabaseFile(ProjectPath string) {
+	Newpath := filepath.Join(ProjectPath, "Db.go")
+	file, err := os.Create(Newpath)
+	if err != nil {
+		fmt.Println(err)
+		file.Close()
+		return
+	}
+	for _, v := range Db {
+		fmt.Fprintln(file, v)
+	}
+	err = file.Close()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+}
+
+var Db = []string{
+	"package utils\n", "import(", "\t\"log\"", "\t\"database/sql\"", "\t\"fmt\"", "\t_ \"github.com/mattn/go-sqlite3\"", ")\n", "func CreateDatabase() {", "\tdb, err := sql.Open(\"sqlite3\",\"./backend/Configs/db.sqlite\")", "\tif err != nil {",
+	"\t\tfmt.Println(err)", "\t}\n", "\tdefer db.Close()", "\tr := `", "\tCREATE TABLE IF NOT EXISTS User (", "\t\tID INTEGER PRIMARY KEY AUTOINCREMENT", "\t\tUsername VARCAHR(20) NOT NULL REFERENCEs \"Auth\"(\"username\"),",
+	"\t\tEmail VARCHAR(100) NOT NULL REFERENCES \"Auth\"(\"email\"),", "\t\tName VARCHAR(20) NOT NULL,", "\t\tPassword VARCHAR(50) NOT NULL,", "\t\tInscription VARCHAR(10) NOT NULL,", "\t\tBirthday VARCHAR(10) NOT NULL,",
+	"\t\tLastname VARCHAR(20) NOT NULL", "\t);", "\tCREATE TABLE IF NOT EXISTS Auth (", "\t\tID INTEGER PRIMARY KEY,", "\t\tID INTEGER PRIMARY KEY,", "\t\tUsername  VARCAHR(20) NOT NULL,", "\t\tPassword VARCAHR(50) NOT NULL,",
+	"\t\temail VARCAHR(100) NOT NULL", "\t);", "\t`\n", "\t_, err = db.Exec(r)", "\tif err != nil {", "\t\tlog.Println(\"CREATE ERROR\")", "\t\tfmt.Println(err)", "\t\t}", "\t}",
+}
+
+func CreateDb(ProjectPath string) {
+	Newpath := filepath.Join(ProjectPath, "Db.sqlite")
+	file, err := os.Create(Newpath)
+	if err != nil {
+		fmt.Println(err)
+		file.Close()
+		return
+	}
 }
