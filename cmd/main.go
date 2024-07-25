@@ -15,4 +15,5 @@ func main() {
 	ProjectPath := creatingfolders.CreateMainFolder(configs.Projectname, absolutepath)
 	creatingfolders.CreateBackendFolder(ProjectPath)
 	creatingfolders.CreateFrontendFolder(ProjectPath)
+	creatingfolders.CreateDatabaseFolder(ProjectPath)
 }

@@ -46,6 +46,17 @@ func CreateFrontendFolder(ProjectPath string) {
 	CreateAssetsFolder(Newpath)
 }
 
+func CreateDatabaseFolder(ProjectPath string) {
+	Newpath := filepath.Join(ProjectPath, "Database")
+	err := os.MkdirAll(Newpath, os.ModePerm)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println("Frontend directory created successfully!")
+	createfile.CreateDb(Newpath)
+}
+
 func CreateHandlerFolder(ProjectPath string) {
 	Newpath := filepath.Join(ProjectPath, "handler")
 	err := os.MkdirAll(Newpath, os.ModePerm)
@@ -99,9 +110,7 @@ func CreateUtilsFolder(ProjectPath string) {
 	}
 	fmt.Println("utils directory created successfully!")
 	createfile.CreateUtilsFile(Newpath)
-	createfile.CreateDb(Newpath)
 	createfile.CreateDatabaseFile(Newpath)
-
 }
 
 func CreateCssFolder(ProjectPath string) {
