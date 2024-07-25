@@ -14,7 +14,6 @@ func CreateFrontendFolder(ProjectPath string) {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println("Frontend directory created successfully!")
 	createfrontendfile.CreateHTMLFile(Newpath)
 	CreateStaticFolder(Newpath)
 }
@@ -26,7 +25,6 @@ func CreateStaticFolder(ProjectPath string) {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println("static directory created successfully!")
 	CreateCssFolder(Newpath)
 	CreateJsFolder(Newpath)
 	CreateAssetsFolder(Newpath)
@@ -39,7 +37,6 @@ func CreateCssFolder(ProjectPath string) {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println("css directory created successfully!")
 
 	createfrontendfile.CreateCssFile(Newpath)
 }
@@ -62,7 +59,6 @@ func CreateAssetsFolder(ProjectPath string) {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println("asset directory created successfully!")
 	CreateImageFolder(Newpath)
 	CreateFontFolder(Newpath)
 }
@@ -74,7 +70,6 @@ func CreateImageFolder(ProjectPath string) {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println("image directory created successfully!")
 }
 
 func CreateFontFolder(ProjectPath string) {

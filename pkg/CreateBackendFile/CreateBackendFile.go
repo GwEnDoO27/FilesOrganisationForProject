@@ -153,3 +153,28 @@ func CreateDb(ProjectPath string) {
 		return
 	}
 }
+
+func CreateMainFile(ProjectPath string) {
+	Newpath := filepath.Join(ProjectPath, "main.go")
+	file, err := os.Create(Newpath)
+	if err != nil {
+		fmt.Println(err)
+		file.Close()
+		return
+	}
+	for _, v := range main {
+		fmt.Fprintln(file, v)
+	}
+	err = file.Close()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+}
+
+var main = []string{
+	"package main\n", "import(", "\t\"fmt\"", "\t\"log\"", "\t\"net/http\"", fmt.Sprintf("\t\"%s/routes\"", configs.Projectname), fmt.Sprintf("\t\"%s/utils\"", configs.Projectname), ")\n", "func init() {", "\tutils.CreateDatabase()",
+	"}\n", "func main() {", "\tfmt.Print(\"\\033[37m\")", "\tfmt.Println(\"Server Started: https://localhost:8080/\")",
+	"\tfmt.Print(\"\\033[37m\")", "\thttp.Handle(\"/static/\", http.StripPrefix(\"/static/\", http.FileServer(http.Dir(\"Frontend/static/\"))))", "\troutes.SetupRoutes()",
+	"\terr := http.ListenAndServe(\":8080\",nil)", "\tif err != nil {", "\t\tlog.Fatal(err)", "\t}", "}",
+}
