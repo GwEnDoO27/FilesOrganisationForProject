@@ -1,4 +1,4 @@
-package pkg
+package creatingfolders
 
 import (
 	"fmt"
