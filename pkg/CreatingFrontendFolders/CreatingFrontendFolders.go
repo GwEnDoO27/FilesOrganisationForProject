@@ -40,6 +40,8 @@ func CreateCssFolder(ProjectPath string) {
 		return
 	}
 	fmt.Println("css directory created successfully!")
+
+	createfrontendfile.CreateCssFile(Newpath)
 }
 
 func CreateJsFolder(ProjectPath string) {
