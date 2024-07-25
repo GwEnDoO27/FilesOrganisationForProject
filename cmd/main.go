@@ -2,7 +2,7 @@ package main
 
 import (
 	"FilesOrganisationForProject/configs"
-	creatingfolders "FilesOrganisationForProject/pkg/CreatingFolders"
+	creatingbackendfolders "FilesOrganisationForProject/pkg/CreatingBackendFolders"
 	prompt "FilesOrganisationForProject/pkg/Prompt"
 	"fmt"
 )
@@ -12,8 +12,8 @@ func main() {
 
 	configs.Projectname = prompt.PromptProjectName("Enter the name of the project :")
 	fmt.Printf("The name of your project %s\n", configs.Projectname)
-	ProjectPath := creatingfolders.CreateMainFolder(configs.Projectname, absolutepath)
-	creatingfolders.CreateBackendFolder(ProjectPath)
-	creatingfolders.CreateFrontendFolder(ProjectPath)
-	creatingfolders.CreateDatabaseFolder(ProjectPath)
+	ProjectPath := creatingbackendfolders.CreateMainFolder(configs.Projectname, absolutepath)
+	creatingbackendfolders.CreateBackFolder(ProjectPath)
+	creatingbackendfolders.CreateFrontendFolder(ProjectPath)
+	creatingbackendfolders.CreateDatabaseFolder(ProjectPath)
 }

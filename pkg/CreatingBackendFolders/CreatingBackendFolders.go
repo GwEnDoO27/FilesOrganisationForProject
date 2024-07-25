@@ -1,7 +1,7 @@
-package creatingfolders
+package creatingbackendfolders
 
 import (
-	createfile "FilesOrganisationForProject/pkg/CreateFile"
+	createbackendfile "FilesOrganisationForProject/pkg/CreateBackendFile"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -18,7 +18,7 @@ func CreateMainFolder(Projectname, path string) string {
 	return Newpath
 }
 
-func CreateBackendFolder(ProjectPath string) {
+func CreateBackFolder(ProjectPath string) {
 	Newpath := filepath.Join(ProjectPath, "Backend")
 	err := os.MkdirAll(Newpath, os.ModePerm)
 	if err != nil {
@@ -54,7 +54,7 @@ func CreateDatabaseFolder(ProjectPath string) {
 		return
 	}
 	fmt.Println("Frontend directory created successfully!")
-	createfile.CreateDb(Newpath)
+	createbackendfile.CreateDb(Newpath)
 }
 
 func CreateHandlerFolder(ProjectPath string) {
@@ -66,7 +66,7 @@ func CreateHandlerFolder(ProjectPath string) {
 	}
 	fmt.Println("handler directory created successfully!")
 
-	createfile.CreateHandlerFile(Newpath)
+	createbackendfile.CreateHandlerFile(Newpath)
 }
 
 func CreateMiddlewareFolder(ProjectPath string) {
@@ -77,7 +77,7 @@ func CreateMiddlewareFolder(ProjectPath string) {
 		return
 	}
 	fmt.Println("middleware directory created successfully!")
-	createfile.CreateMiddlewaresFile(Newpath)
+	createbackendfile.CreateMiddlewaresFile(Newpath)
 }
 
 func CreateModelsFolder(ProjectPath string) {
@@ -88,7 +88,7 @@ func CreateModelsFolder(ProjectPath string) {
 		return
 	}
 	fmt.Println("models directory created successfully!")
-	createfile.CreateModelsFile(Newpath)
+	createbackendfile.CreateModelsFile(Newpath)
 }
 
 func CreateRoutesFolder(ProjectPath string) {
@@ -99,7 +99,7 @@ func CreateRoutesFolder(ProjectPath string) {
 		return
 	}
 	fmt.Println("routes directory created successfully!")
-	createfile.CreateRoutesFile(Newpath)
+	createbackendfile.CreateRoutesFile(Newpath)
 }
 func CreateUtilsFolder(ProjectPath string) {
 	Newpath := filepath.Join(ProjectPath, "utils")
@@ -109,8 +109,8 @@ func CreateUtilsFolder(ProjectPath string) {
 		return
 	}
 	fmt.Println("utils directory created successfully!")
-	createfile.CreateUtilsFile(Newpath)
-	createfile.CreateDatabaseFile(Newpath)
+	createbackendfile.CreateUtilsFile(Newpath)
+	createbackendfile.CreateDatabaseFile(Newpath)
 }
 
 func CreateCssFolder(ProjectPath string) {
