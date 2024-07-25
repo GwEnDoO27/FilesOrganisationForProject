@@ -77,6 +77,7 @@ func CreateModelsFolder(ProjectPath string) {
 		return
 	}
 	fmt.Println("models directory created successfully!")
+	createfile.CreateModelsFile(Newpath)
 }
 
 func CreateRoutesFolder(ProjectPath string) {
@@ -87,6 +88,7 @@ func CreateRoutesFolder(ProjectPath string) {
 		return
 	}
 	fmt.Println("routes directory created successfully!")
+	createfile.CreateRoutesFile(Newpath)
 }
 func CreateUtilsFolder(ProjectPath string) {
 	Newpath := filepath.Join(ProjectPath, "utils")
@@ -96,6 +98,7 @@ func CreateUtilsFolder(ProjectPath string) {
 		return
 	}
 	fmt.Println("utils directory created successfully!")
+
 }
 
 func CreateCssFolder(ProjectPath string) {
