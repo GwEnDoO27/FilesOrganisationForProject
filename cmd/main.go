@@ -1,6 +1,7 @@
 package main
 
 import (
+	"FilesOrganisationForProject/configs"
 	creatingfolders "FilesOrganisationForProject/pkg/CreatingFolders"
 	prompt "FilesOrganisationForProject/pkg/Prompt"
 	"fmt"
@@ -9,9 +10,9 @@ import (
 func main() {
 	var absolutepath = "/Users/gwendal/Desktop/"
 
-	Projectname := prompt.PromptProjectName("Enter the name of the project :")
-	fmt.Printf("The name of your project %s\n", Projectname)
-	ProjectPath := creatingfolders.CreateMainFolder(Projectname, absolutepath)
+	configs.Projectname = prompt.PromptProjectName("Enter the name of the project :")
+	fmt.Printf("The name of your project %s\n", configs.Projectname)
+	ProjectPath := creatingfolders.CreateMainFolder(configs.Projectname, absolutepath)
 	creatingfolders.CreateBackendFolder(ProjectPath)
 	creatingfolders.CreateFrontendFolder(ProjectPath)
 }

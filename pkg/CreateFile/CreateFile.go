@@ -1,6 +1,7 @@
 package createfile
 
 import (
+	"FilesOrganisationForProject/configs"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -73,6 +74,11 @@ var models = []string{
 }
 
 func CreateRoutesFile(ProjectPath string) {
+
+	var routes = []string{
+		"package models\n", "//Contient la configuration des routes de l'application\n", "import(", fmt.Sprintf("\t\"%s/handler\"", configs.Projectname), "\t\"net/http\"", ")\n", "func SetupRoutes() {", "\thttp.HandleFunc(\"/\", handler.helloHandler)", "}",
+	}
+
 	Newpath := filepath.Join(ProjectPath, "routes.go")
 	file, err := os.Create(Newpath)
 	if err != nil {
@@ -88,8 +94,5 @@ func CreateRoutesFile(ProjectPath string) {
 		fmt.Println(err)
 		return
 	}
-}
-
-var routes = []string{
-	"package models\n", "//Contient la configuration des routes de l'application\n", "import(", "\t\"\"NameofTheProject/handler\"", "\t\"net/http\"", ")\n", "func SetupRoutes() {", "\thttp.HandleFunc(\"/\", handlers.helloHandler)", "}",
+	fmt.Println("routes", routes)
 }
