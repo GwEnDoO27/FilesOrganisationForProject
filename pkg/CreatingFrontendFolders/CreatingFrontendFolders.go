@@ -52,6 +52,7 @@ func CreateJsFolder(ProjectPath string) {
 		return
 	}
 	fmt.Println("js directory created successfully!")
+	createfrontendfile.CreateJSFile(Newpath)
 }
 
 func CreateAssetsFolder(ProjectPath string) {

@@ -48,8 +48,30 @@ func CreateCssFile(ProjectPath string) {
 }
 
 var css = []string{
-	"/* styles.css */\n","body {","    font-family: Arial, sans-serif;","    margin: 0;","    padding: 0;","    background-color: #f4f4f4;","}\n","h1 {","    color: #333;",
-	"    text-align: center;","    margin-top: 20px;","}\n","p {","    color: #666;","    text-align: center;","    font-size: 1.2em;","    margin: 20px;","}\n",
-	".container {\n","    max-width: 800px;","    margin: 0 auto;","    padding: 20px;","    background: #fff;","    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);","    border-radius: 8px;",
+	"/* styles.css */\n", "body {", "    font-family: Arial, sans-serif;", "    margin: 0;", "    padding: 0;", "    background-color: #f4f4f4;", "}\n", "h1 {", "    color: #333;",
+	"    text-align: center;", "    margin-top: 20px;", "}\n", "p {", "    color: #666;", "    text-align: center;", "    font-size: 1.2em;", "    margin: 20px;", "}\n",
+	".container {\n", "    max-width: 800px;", "    margin: 0 auto;", "    padding: 20px;", "    background: #fff;", "    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);", "    border-radius: 8px;",
 	"}\n",
+}
+
+func CreateJSFile(ProjectPath string) {
+	Newpath := filepath.Join(ProjectPath, "app.js")
+	file, err := os.Create(Newpath)
+	if err != nil {
+		fmt.Println(err)
+		file.Close()
+		return
+	}
+	for _, v := range js {
+		fmt.Fprintln(file, v)
+	}
+	err = file.Close()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+}
+
+var js = []string{
+	"Code JavaScript principal de l'application",
 }
