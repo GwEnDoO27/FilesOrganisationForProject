@@ -25,6 +25,7 @@ func CreateBackFolder(ProjectPath string) {
 		return
 	}
 	createbackendfile.CreateMainFile(Newpath)
+	createbackendfile.CreateGitignoreFile(Newpath)
 	CreateHandlerFolder(Newpath)
 	CreateMiddlewareFolder(Newpath)
 	CreateModelsFolder(Newpath)

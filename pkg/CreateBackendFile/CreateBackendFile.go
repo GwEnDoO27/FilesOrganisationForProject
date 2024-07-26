@@ -203,3 +203,33 @@ var Templates = []string{
 	"\tif err != nil {", "\t\tfmt.Println(fmt.Printf(\"%s Error Parsing Template\", err))", "\t}", "\terr = t.Execute(w, nil)", "\tif err != nil {", "\t\tfmt.Println(fmt.Printf(\"%s Error Execute Template\", err))",
 	"\t}", "}",
 }
+
+func CreateGitignoreFile(ProjectPath string) {
+
+	Newpath := filepath.Join(ProjectPath, ".gitignore")
+	file, err := os.Create(Newpath)
+	if err != nil {
+		fmt.Println(err)
+		file.Close()
+		return
+	}
+	for _, v := range gitignore {
+		fmt.Fprintln(file, v)
+	}
+	err = file.Close()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+}
+
+var gitignore = []string{"# Logs", "logs", "*.log", "npm-debug.log*", "yarn-debug.log*", "yarn-error.log*\n", "# Runtime data", "pids", "*.pid", "*.seed", "*.pid.lock\n",
+	"# Dependency directories", "node_modules/", "jspm_packages/\n", "# TypeScript v1 declaration files", "typings/\n", "# Optional npm cache directory", ".npm\n", "# IDEs and editors", "# Eclipse", ".metadata", ".classpath", ".project",
+	".c9/", "*.launch", ".settings/", "*.sublime-workspace\n", "# IntelliJ IDEA", "*.iml", "*.ipr", "*.iws", ".idea/", "out/\n", "# Visual Studio Code", ".vscode/", ".history/\n", "# Sublime Text", "*.sublime-workspace\n", "# Vim", "*.swp", "*.swo\n",
+	"# MacOS", ".DS_Store", ".AppleDouble", ".LSOverride\n", "# Windows", "Thumbs.db", "ehthumbs.db", "Desktop.ini", "$RECYCLE.BIN/\n", "# Python", "__pycache__/", "*.py[cod]", "*$py.class\n", "# Jupyter Notebook", ".ipynb_checkpoints\n",
+	"# Java", "*.class", "*.jar", "*.war", "*.ear", "*.class\n", "# C/C++", "*.obj", "*.o", "*.a", "*.lib", "*.so", "*.dylib", "*.exe", "*.dll", "*.class\n", "# Go", "*.exe", "*.test", "*.out\n", "# Rust", "/target/\n", "# Swift", ".build/",
+	"*.xcodeproj/\n", "# Ruby", "*.gem", "*.rbc", ".rvm/", ".bundle/", "vendor/bundle/", "lib/bundler/man/\n", "# PHP", "vendor/\n", "# Composer", "/vendor/\n", "# Laravel", "/vendor/", ".phpunit.result.cache", ".env", "Homestead.yaml", "Homestead.json\n",
+	"# CakePHP", "tmp/", "logs/", "bin/cake\n", "# Symfony", "/app/bootstrap.php.cache", "/app/cache/*", "/app/logs/*", "/app/sessions/*", "/vendor/*", "/web/bundles/", "/bin/*", "/build/\n", "# Django", "*.log", "*.pot", "*.pyc", "__pycache__/", "local_settings.py", "db.sqlite3", "media\n",
+	"# Flask", "instance/", ".webassets-cache\n", "# CakePHP", "tmp/cache/persistent/*", "tmp/cache/models/*", "tmp/cache/views/*", "tmp/logs/*", "tmp/sessions/*", "tmp/test_logs/*", "tmp/tests/*\n", "# WordPress", "wp-content/uploads/", "wp-content/upgrade/\n",
+	"# Magento", "/media/", "var/\n", "# Joomla", "/logs/", "tmp/\n", "# Drupal", "sites/all/modules/", "sites/all/libraries/", "sites/all/themes/", "sites/default/files/\n", "# TYPO3", "typo3temp/", "typo3conf/l10n/", "uploads/\n",
+}
