@@ -25,7 +25,7 @@ func CreateHTMLFile(ProjectPath string) {
 }
 
 var html = []string{
-	"<!DOCTYPE html>", "<html lang=\"en\">\n", "<head>", "    <meta charset=\"UTF-8\">", "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">", "    <link rel=\"stylesheet\" href=\"./static/style.css\"/>", "    <title>Welcome to MyProject</title>", "</head>\n",
+	"<!DOCTYPE html>", "<html lang=\"en\">\n", "<head>", "    <meta charset=\"UTF-8\">", "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">", "    <link rel=\"stylesheet\" type=\"text/css\" href=\"./static/css/style.css\"/>", "    <title>Welcome to MyProject</title>", "</head>\n",
 	"<body>", "    <h1>Welcome to MyProject</h1>", "    <p>This is a simple web page served by a Go web server.</p>", "</body>\n", "</html>\n",
 }
 
@@ -75,4 +75,3 @@ func CreateJSFile(ProjectPath string) {
 var js = []string{
 	"//Code JavaScript principal de l'application",
 }
-
