@@ -12,7 +12,7 @@ Ce projet en Go génère une architecture de dossier pour une application web. I
 ## Architecture des dossiers
 
 Voici un exemple d'architecture générée par cet outil :
-
+```
 Your-app
 ├── Backend
 │ ├── go.mod
@@ -42,7 +42,7 @@ Your-app
 │ └── style.css
 └── js
 └── app.js
-
+```
 
 
 ## Installation
