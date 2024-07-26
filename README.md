@@ -15,33 +15,33 @@ Voici un exemple d'architecture générée par cet outil :
 
 Your-app
 ├── Backend
-│   ├── go.mod
-│   ├── go.sum
-│   ├── handler
-│   │   └── handler.go
-│   ├── main.go
-│   ├── middleware
-│   │   └── middleware.go
-│   ├── models
-│   │   └── models.go
-│   ├── routes
-│   │   └── routes.go
-│   └── utils
-│       ├── Db.go
-│       ├── Templates.go
-│       └── utils.go
+│ ├── go.mod
+│ ├── go.sum
+│ ├── handler
+│ │ └── handler.go
+│ ├── main.go
+│ ├── middleware
+│ │ └── middleware.go
+│ ├── models
+│ │ └── models.go
+│ ├── routes
+│ │ └── routes.go
+│ └── utils
+│ ├── Db.go
+│ ├── Templates.go
+│ └── utils.go
 ├── Database
-│   └── Db.sqlite
+│ └── Db.sqlite
 └── Frontend
-    ├── index.html
-    └── static
-        ├── asset
-        │   ├── font
-        │   └── image
-        ├── css
-        │   └── style.css
-        └── js
-            └── app.js
+├── index.html
+└── static
+├── asset
+│ ├── font
+│ └── image
+├── css
+│ └── style.css
+└── js
+└── app.js
 
 
 
