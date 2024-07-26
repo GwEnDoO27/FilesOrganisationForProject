@@ -13,11 +13,12 @@ import (
 )
 
 func main() {
-	var absolutepath = "/Users/gwendal/Desktop/"
+	//var absolutepath = "/Users/gwendal/Desktop/"
 
 	configs.Projectname = prompt.PromptProjectName("Enter the name of the project :")
 	fmt.Printf("The name of your project %s\n", configs.Projectname)
-	ProjectPath := creatingbackendfolders.CreateMainFolder(configs.Projectname, absolutepath)
+	configs.ProjectPath = prompt.PromptProjecPath("Enter the path where your project will be located in this format(/somefolders/anotherfolder) :")
+	ProjectPath := creatingbackendfolders.CreateMainFolder(configs.Projectname, configs.ProjectPath)
 	creatingbackendfolders.CreateBackFolder(ProjectPath)
 	creatingfrontendfolders.CreateFrontendFolder(ProjectPath)
 	creatingbackendfolders.CreateDatabaseFolder(ProjectPath)
