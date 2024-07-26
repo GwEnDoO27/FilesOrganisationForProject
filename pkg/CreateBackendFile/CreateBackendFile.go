@@ -137,7 +137,7 @@ func CreateDatabaseFile(ProjectPath string) {
 }
 
 var Db = []string{
-	"package utils\n", "import(", "\t\"log\"", "\t\"database/sql\"", "\t\"fmt\"", "\t_ \"github.com/mattn/go-sqlite3\"", ")\n", "func CreateDatabase() {", "\tdb, err := sql.Open(\"sqlite3\",\"./Db.sqlite\")", "\tif err != nil {",
+	"package utils\n", "import(", "\t\"log\"", "\t\"database/sql\"", "\t\"fmt\"", "\t_ \"github.com/mattn/go-sqlite3\"", ")\n", "func CreateDatabase() {", "\tdb, err := sql.Open(\"sqlite3\",\"../Database/Db.sqlite\")", "\tif err != nil {",
 	"\t\tfmt.Println(err)", "\t}\n", "\tdefer db.Close()", "\tr := `", "\tCREATE TABLE IF NOT EXISTS Auth (", "\t\tID INTEGER PRIMARY KEY AUTOINCREMENT,", "\t\tUsername VARCHAR(20) NOT NULL UNIQUE,",
 	"\t\tPassword VARCHAR(50) NOT NULL,", "\t\tEmail VARCHAR(100) NOT NULL UNIQUE", "\t);", "\tCREATE TABLE IF NOT EXISTS User (", "\t\tID INTEGER PRIMARY KEY AUTOINCREMENT,", "\t\tUsername VARCHAR(20) NOT NULL,",
 	"\t\tEmail VARCHAR(100) NOT NULL,", "\t\tName VARCHAR(20) NOT NULL,", "\t\tPassword VARCHAR(50) NOT NULL,", "\t\tInscription VARCHAR(10) NOT NULL,", "\t\tBirthday VARCHAR(10) NOT NULL,",
