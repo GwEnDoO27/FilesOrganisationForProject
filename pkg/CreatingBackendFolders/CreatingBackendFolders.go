@@ -91,4 +91,5 @@ func CreateUtilsFolder(ProjectPath string) {
 	}
 	createbackendfile.CreateUtilsFile(Newpath)
 	createbackendfile.CreateDatabaseFile(Newpath)
+	createbackendfile.CreateTemplateFile(Newpath)
 }

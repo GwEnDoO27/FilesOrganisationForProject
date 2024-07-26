@@ -79,5 +79,4 @@ func CreateFontFolder(ProjectPath string) {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println("font directory created successfully!")
 }
