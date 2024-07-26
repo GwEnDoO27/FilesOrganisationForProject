@@ -51,10 +51,46 @@ Your-app
 
 ```sh
 git clone https://github.com/GwEnDoO27/FilesOrganisationForProject.git
+```
+
+2. Alternative :
+- Telechargz l'un des executable selon votre systeme dans le dossier Apps
+
+3. Autres Alternatives : 
+- Telechargz l'un des executable selon votre systeme dans le dossier Apps
+- Deplacer le dans le dossier que vous souhaitiez et retenez le chemin d'acces
+
+
+## Utilisation 
+
+Methode 1 : Exécuter via Go
+- Naviguez vers le répertoire du projet et exécutez le programme: 
+```sh
 cd FilesOrganisationForProject
 cd cmd
 go run .
 ```
+Methode 2 : Utiliser l'exécutable
+- Dans le terminale tapez 
+```sh
+sudo bash FilesOrganisationForProject-linux
+```
 
-2. Alternative :
-- Telechargz l'un des executable selon votre systeme
+Methode 3 : Ajouter un alias pour un accès rapide
+1. Dans le terminale tapez 
+```sh
+nano ~/.zshrc
+```
+2. Ajoutez l'alias suivant à la fin du fichier :
+```sh
+alias Nom_d_appel='/votre chemin d'acces/FilesOrganisationForProject'
+```
+3. Sauvegardez et fermez l'éditeur (^X puis y).
+4. Maintenant, vous pouvez appeler et lancer le fichier n'importe où en utilisant l'alias
+```sh
+Nom_d_appel
+```
+
+## Licence
+
+Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
